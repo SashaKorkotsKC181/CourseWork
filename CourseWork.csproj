@@ -45,7 +45,32 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DeleteCobe.cs" />
+    <Compile Include="Difficulty.cs" />
     <Compile Include="Figure.cs" />
+    <Compile Include="FormGameSetUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGameSetUp.Designer.cs">
+      <DependentUpon>FormGameSetUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNick.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNick.Designer.cs">
+      <DependentUpon>FormNick.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormStartMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStartMenu.Designer.cs">
+      <DependentUpon>FormStartMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTopScore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTopScore.Designer.cs">
+      <DependentUpon>FormTopScore.cs</DependentUpon>
+    </Compile>
     <Compile Include="GameForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +87,19 @@
     <Compile Include="RotaryFigure.cs" />
     <Compile Include="RotateFigure.cs" />
     <Compile Include="StandardFigure.cs" />
+    <Compile Include="UsersInTopScore.cs" />
+    <EmbeddedResource Include="FormGameSetUp.resx">
+      <DependentUpon>FormGameSetUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNick.resx">
+      <DependentUpon>FormNick.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStartMenu.resx">
+      <DependentUpon>FormStartMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTopScore.resx">
+      <DependentUpon>FormTopScore.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GameForm.resx">
       <DependentUpon>GameForm.cs</DependentUpon>
     </EmbeddedResource>

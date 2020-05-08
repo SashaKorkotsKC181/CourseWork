@@ -8,3 +8,7 @@ D:\University\Програмування та алгоритмічні мови\
 D:\University\Програмування та алгоритмічні мови\3_семестр\CourseWork\CourseWork\obj\Debug\CourseWork.pdb
 D:\University\Програмування та алгоритмічні мови\3_семестр\CourseWork\CourseWork\obj\Debug\CourseWork.GameForm.resources
 D:\University\Програмування та алгоритмічні мови\3_семестр\CourseWork\CourseWork\obj\Debug\CourseWork.Resource.resources
+D:\University\Програмування та алгоритмічні мови\3_семестр\CourseWork\CourseWork\obj\Debug\CourseWork.FormStartMenu.resources
+D:\University\Програмування та алгоритмічні мови\3_семестр\CourseWork\CourseWork\obj\Debug\CourseWork.FormTopScore.resources
+D:\University\Програмування та алгоритмічні мови\3_семестр\CourseWork\CourseWork\obj\Debug\CourseWork.FormGameSetUp.resources
+D:\University\Програмування та алгоритмічні мови\3_семестр\CourseWork\CourseWork\obj\Debug\CourseWork.FormNick.resources

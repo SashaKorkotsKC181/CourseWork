@@ -10,7 +10,7 @@ namespace CourseWork
 {
     class RotateFigure : Figure
     {
-        bool horizontal;
+
         public RotateFigure(int[,] map_, int side_, Point leftUpPointOfWorkspace_)
         {
             Random rand = new Random();

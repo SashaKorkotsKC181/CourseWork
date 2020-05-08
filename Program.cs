@@ -16,7 +16,11 @@ namespace CourseWork
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GameForm());
+            FormGameSetUp gameSetUp = new FormGameSetUp();
+            while (new FormStartMenu(gameSetUp).ShowDialog() == DialogResult.OK)
+            {
+                Application.Run(new GameForm(gameSetUp.difficulty));
+            }
         }
     }
 }

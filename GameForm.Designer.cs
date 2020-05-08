@@ -63,7 +63,7 @@
             this.scoreLabel.BackColor = System.Drawing.Color.White;
             this.scoreLabel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.scoreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
-            this.scoreLabel.Location = new System.Drawing.Point(139, 71);
+            this.scoreLabel.Location = new System.Drawing.Point(218, 132);
             this.scoreLabel.Name = "scoreLabel";
             this.scoreLabel.Size = new System.Drawing.Size(24, 25);
             this.scoreLabel.TabIndex = 1;
@@ -79,7 +79,7 @@
             this.levelLabel.BackColor = System.Drawing.Color.White;
             this.levelLabel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.levelLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
-            this.levelLabel.Location = new System.Drawing.Point(139, 131);
+            this.levelLabel.Location = new System.Drawing.Point(218, 177);
             this.levelLabel.Name = "levelLabel";
             this.levelLabel.Size = new System.Drawing.Size(24, 25);
             this.levelLabel.TabIndex = 1;
@@ -90,7 +90,7 @@
             this.gameoverLabel.BackColor = System.Drawing.Color.White;
             this.gameoverLabel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.gameoverLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F);
-            this.gameoverLabel.Location = new System.Drawing.Point(68, 106);
+            this.gameoverLabel.Location = new System.Drawing.Point(79, 107);
             this.gameoverLabel.Name = "gameoverLabel";
             this.gameoverLabel.Size = new System.Drawing.Size(135, 25);
             this.gameoverLabel.TabIndex = 1;
@@ -103,9 +103,9 @@
             this.labelInstryction.BackColor = System.Drawing.Color.White;
             this.labelInstryction.Location = new System.Drawing.Point(3, 54);
             this.labelInstryction.Name = "labelInstryction";
-            this.labelInstryction.Size = new System.Drawing.Size(79, 52);
+            this.labelInstryction.Size = new System.Drawing.Size(79, 65);
             this.labelInstryction.TabIndex = 2;
-            this.labelInstryction.Text = "← Move left\r\n→ Move right\r\n↑ Scroll colours\r\n↓ Move down\r\n";
+            this.labelInstryction.Text = "← Move left\r\n→ Move right\r\n↑ Scroll colours\r\n↓ Move down\r\n\"T\" Pause";
             // 
             // label4
             // 
@@ -123,27 +123,28 @@
             this.labelR.ForeColor = System.Drawing.SystemColors.ControlText;
             this.labelR.Location = new System.Drawing.Point(2, 144);
             this.labelR.Name = "labelR";
-            this.labelR.Size = new System.Drawing.Size(78, 39);
+            this.labelR.Size = new System.Drawing.Size(0, 13);
             this.labelR.TabIndex = 2;
-            this.labelR.Text = "\"R\" can make \r\nhorizontal \r\nnext figure";
             // 
             // labelScore
             // 
             this.labelScore.AutoSize = true;
-            this.labelScore.Location = new System.Drawing.Point(206, 144);
+            this.labelScore.Location = new System.Drawing.Point(220, 113);
             this.labelScore.Name = "labelScore";
             this.labelScore.Size = new System.Drawing.Size(35, 13);
             this.labelScore.TabIndex = 3;
             this.labelScore.Text = "Score";
+            this.labelScore.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // labelLevel
             // 
             this.labelLevel.AutoSize = true;
-            this.labelLevel.Location = new System.Drawing.Point(208, 186);
+            this.labelLevel.Location = new System.Drawing.Point(220, 164);
             this.labelLevel.Name = "labelLevel";
             this.labelLevel.Size = new System.Drawing.Size(33, 13);
             this.labelLevel.TabIndex = 3;
             this.labelLevel.Text = "Level";
+            this.labelLevel.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // MenuOfForm
             // 

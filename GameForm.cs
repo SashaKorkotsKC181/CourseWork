@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Serialization;
+using System.IO;
 
 namespace CourseWork
 {
@@ -15,10 +18,11 @@ namespace CourseWork
         Figure currentFigure;
         Figure nextFigure;
         Point center;
-        Point leftUpPointOfMap;       
-        int numberOfCobsDownInPictureBox = 4;
-        int numberOfCobsDownSide = 6;
-        int numberOfCobsLeftSide = 12;
+        Point leftUpPointOfMap;
+        Difficulty difficulty;
+        int numberOfCobsDownInPictureBox;
+        int numberOfCobsDownSide;
+        int numberOfCobsLeftSide;
         int score;
         int speed;
         int cobeSide;
@@ -30,9 +34,14 @@ namespace CourseWork
         bool moveRight;
         SortedSet<DeleteCode> destrou;
         int level;
-        public GameForm()
-        {
+        public GameForm(Difficulty diff)
+        {            
             InitializeComponent();
+            numberOfCobsDownSide = DifficultyOfGame.DifficultyToSize(diff)[0];
+            numberOfCobsLeftSide = DifficultyOfGame.DifficultyToSize(diff)[1];
+            numberOfCobsDownInPictureBox = 4;
+            difficulty = diff;
+            this.Size = new Size((numberOfCobsDownSide + numberOfCobsDownInPictureBox * 2) * 30, numberOfCobsLeftSide * 30);
             SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint, true);
             Load += GameForm_Load;
             timer.Tick += new EventHandler(NewFrame);
@@ -94,6 +103,9 @@ namespace CourseWork
                         CleanCurrentFigure();
                         currentFigure.Rotate();
                         DrawCurrentFigure();
+                        break;
+                    case Keys.T:                        
+                        Pause();
                         break;
                 }
             }
@@ -224,7 +236,7 @@ namespace CourseWork
             labelR.Text = currentFigure.ToString();
             scoreLabel.Text = score.ToString();
             levelLabel.Text = level.ToString();
-            if (score >= level * 50)
+            if (score >= level * 50 && speed - 50 > 0)
             {
                 level++;
                 speed -= 50;
@@ -249,6 +261,9 @@ namespace CourseWork
             {
                 gameoverLabel.Visible = true;
                 pauseToolStripMenuItem.Enabled = false;
+                timer.Enabled = false;
+                moveDownTimer.Enabled = false;
+                Save();
             }
             else pauseToolStripMenuItem.Enabled = true;
             if (moveLeft || moveRight) timerForMoveLeftRight.Enabled = true;
@@ -256,6 +271,11 @@ namespace CourseWork
         }
 
         void pauseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Pause();
+        }
+
+        private void Pause()
         {
             stop = !stop;
             if (stop)
@@ -309,10 +329,9 @@ namespace CourseWork
 
         private int WhatCobeSide()
         {
-            if (this.DisplayRectangle.Height - MenuOfForm.Height > this.DisplayRectangle.Width)
-                return this.DisplayRectangle.Width / (numberOfCobsDownInPictureBox * 2 + numberOfCobsDownSide);
-            else
-                return (this.DisplayRectangle.Height - MenuOfForm.Height) / numberOfCobsLeftSide;                        
+            int x = this.DisplayRectangle.Width / (numberOfCobsDownInPictureBox * 2 + numberOfCobsDownSide);
+            int y = (this.DisplayRectangle.Height - MenuOfForm.Height) / numberOfCobsLeftSide;
+            return Math.Min(x,y);            
         }
 
         private void DrawCurrentFigure()
@@ -514,9 +533,7 @@ namespace CourseWork
             moveDownTimer.Enabled = false;
             timerForDestrou.Enabled = false;
             destrou = new SortedSet<DeleteCode>();
-            numberOfCobsDownInPictureBox = 4;
-            numberOfCobsDownSide = 6;
-            numberOfCobsLeftSide = 12;
+
             map = new int[numberOfCobsDownSide, numberOfCobsLeftSide + 3];
             currentFigure = CreateFigure(map);
             nextFigure = CreateFigure(map);
@@ -525,19 +542,6 @@ namespace CourseWork
             moveDownTimer.Interval = speed;
             timerForMoveLeftRight.Interval = speed / 5;
             timerForDestrou.Interval = 500;
-            //cobeSide = WhatCobeSide();
-            // щоб фігурка плавно появлявся
-               
-            //center = new Point(this.DisplayRectangle.Width / 2, MenuOfForm.Height + (this.DisplayRectangle.Height - MenuOfForm.Height) / 2);
-            //leftUpPointOfMap = new Point(center.X - numberOfCobsDownSide / 2 * cobeSide, (center.Y - numberOfCobsLeftSide / 2 * cobeSide));
-            //currentFigure.Resize(cobeSide, leftUpPointOfMap);
-            //scoreLabel.Location = new Point(leftUpPointOfMap.X + (numberOfCobsDownSide + 1) * cobeSide, leftUpPointOfMap.Y + 6 * cobeSide);
-            //scoreLabel.Font = new Font(scoreLabel.Font.Name, (float)(cobeSide / 1.5), scoreLabel.Font.Style);
-            //levelLabel.Location = new Point(scoreLabel.Location.X, scoreLabel.Location.Y + 2 * cobeSide);
-            //levelLabel.Font = scoreLabel.Font;
-            //gameoverLabel.Location = new Point(leftUpPointOfMap.X, center.Y - cobeSide / 2);
-            //gameoverLabel.Size = new Size(cobeSide * numberOfCobsDownSide, cobeSide);
-            //gameoverLabel.Font = new Font(scoreLabel.Font.Name, (float)(cobeSide / 1.6), scoreLabel.Font.Style);
             gameoverLabel.Visible = false;
             level = 1;
             moveDownTimer.Enabled = true;
@@ -546,7 +550,6 @@ namespace CourseWork
             gameOver = false;
             stop = false;
             pauseToolStripMenuItem.Text = "Pause";
-            //nextFigure = CreateFigure(map);
             moveLeft = false;
             moveRight = false;            
         }
@@ -554,26 +557,25 @@ namespace CourseWork
         private void LocationOfItems()
         {
             cobeSide = WhatCobeSide();
-
             center = new Point(this.DisplayRectangle.Width / 2, MenuOfForm.Height + (this.DisplayRectangle.Height - MenuOfForm.Height) / 2);
-            leftUpPointOfMap = new Point(center.X - numberOfCobsDownSide / 2 * cobeSide, (center.Y - numberOfCobsLeftSide / 2 * cobeSide));
+            leftUpPointOfMap = new Point(center.X - (numberOfCobsDownSide / 2) * cobeSide, center.Y - (numberOfCobsLeftSide / 2) * cobeSide);
             currentFigure.Resize(cobeSide, leftUpPointOfMap);
             nextFigure.Resize(cobeSide, leftUpPointOfMap);
             scoreLabel.Location = new Point(leftUpPointOfMap.X + (numberOfCobsDownSide + 1) * cobeSide, leftUpPointOfMap.Y + 6 * cobeSide);
             levelLabel.Location = new Point(scoreLabel.Location.X, scoreLabel.Location.Y + 2 * cobeSide);
             gameoverLabel.Location = new Point(leftUpPointOfMap.X, center.Y - cobeSide / 2);
-            labelR.Location = new Point(leftUpPointOfMap.X - numberOfCobsDownInPictureBox * cobeSide - 6, leftUpPointOfMap.Y + 4 * cobeSide);
-            labelInstryction.Location = new Point(leftUpPointOfMap.X - numberOfCobsDownInPictureBox * cobeSide - 6, leftUpPointOfMap.Y + cobeSide);
-            labelScore.Location = new Point(scoreLabel.Location.X, scoreLabel.Location.Y - cobeSide * 2 / 3);
-            labelLevel.Location = new Point(levelLabel.Location.X, levelLabel.Location.Y - cobeSide * 2 / 3);
+            labelR.Location = new Point(leftUpPointOfMap.X - numberOfCobsDownInPictureBox * cobeSide, leftUpPointOfMap.Y + 4 * cobeSide);
+            labelInstryction.Location = new Point(leftUpPointOfMap.X - numberOfCobsDownInPictureBox * cobeSide, leftUpPointOfMap.Y + cobeSide);
+            labelScore.Location = new Point(scoreLabel.Location.X, scoreLabel.Location.Y - cobeSide * 3 / 4);
+            labelLevel.Location = new Point(levelLabel.Location.X, levelLabel.Location.Y - cobeSide * 3 / 4);
             gameoverLabel.Size = new Size(cobeSide * numberOfCobsDownSide, cobeSide);
             try
             {
-                labelLevel.Font = new Font(scoreLabel.Font.Name, (float)(cobeSide / 2.5), scoreLabel.Font.Style);
-                labelScore.Font = new Font(scoreLabel.Font.Name, (float)(cobeSide / 2.5), scoreLabel.Font.Style);
-                labelInstryction.Font = new Font(scoreLabel.Font.Name, (float)(cobeSide / 2.5), scoreLabel.Font.Style);
+                labelLevel.Font = new Font(labelLevel.Font.Name, (float)(cobeSide / 2.5), scoreLabel.Font.Style);
+                labelScore.Font = new Font(labelScore.Font.Name, (float)(cobeSide / 2.5), scoreLabel.Font.Style);
+                labelInstryction.Font = new Font(labelInstryction.Font.Name, (float)(cobeSide / 3), scoreLabel.Font.Style);
                 labelR.Font = new Font(labelR.Font.Name, (float)(cobeSide / 2.5), labelR.Font.Style);
-                gameoverLabel.Font = new Font(scoreLabel.Font.Name, (float)(cobeSide / 1.6), scoreLabel.Font.Style);
+                gameoverLabel.Font = new Font(gameoverLabel.Font.Name, (float)(cobeSide / 1.6), scoreLabel.Font.Style);
                 scoreLabel.Font = new Font(scoreLabel.Font.Name, (float)(cobeSide / 1.5), scoreLabel.Font.Style);
                 levelLabel.Font = scoreLabel.Font;
             }
@@ -582,5 +584,23 @@ namespace CourseWork
             Refresh();
         }
 
+        private void Save()
+        {
+            FormTopScore topScore = new FormTopScore(difficulty);
+            if (topScore.tableTopSccore.Count() < topScore.NumberOfTop || topScore.tableTopSccore.Last().Score <= score)
+            {
+                FormNick formNick = new FormNick();
+                if (formNick.ShowDialog() == DialogResult.OK)
+                {
+                    topScore.tableTopSccoreAdd(new UsersInTopScore(formNick.Nick, level, score));
+                    XmlSerializer serializer = new XmlSerializer(typeof(List<UsersInTopScore>));
+                    using (TextWriter writer = new StreamWriter("TopScoreTable" + difficulty + ".xml"))
+                    {
+                        serializer.Serialize(writer, topScore.tableTopSccore);
+                    }
+                }
+            }
+            new FormTopScore(difficulty).ShowDialog();
+        }
     }
 }
