@@ -33,6 +33,7 @@ namespace CourseWork
         bool moveLeft;
         bool moveRight;
         SortedSet<DeleteCode> destrou;
+        SortedSet<DeleteCode> find;
         int level;
         public GameForm(Difficulty diff)
         {            
@@ -160,8 +161,7 @@ namespace CourseWork
         void timerForDestrou_Tick(object sender, EventArgs e)
         {
             if (!stop && !gameOver)
-            {
-                
+            {                
                 if (forDestrou == 2)
                 {
                     FindEqualCobesInDestrou();
@@ -485,6 +485,7 @@ namespace CourseWork
                         }
                         map[currentFigure.GetX + i, currentFigure.GetY + j + k] = map[currentFigure.GetX + i, currentFigure.GetY + j];
                         map[currentFigure.GetX + i, currentFigure.GetY + j] = 0;
+                        FindEqualCobes(currentFigure.GetX + i, currentFigure.GetY + j + k, ref destrou);
                     }
                 }
             }
@@ -514,11 +515,11 @@ namespace CourseWork
         {
             Random r = new Random();
             int number = r.Next(0, 21);
-            if (number < 15)
+            if (number < 10)
             {
                 return new StandardFigure(map, cobeSide, leftUpPointOfMap);
             }
-            else if (number > 19)
+            else if (number > 15)
             {
                 return new RotaryFigure(map, cobeSide, leftUpPointOfMap);                
             }

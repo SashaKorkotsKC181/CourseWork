@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfUsersInTopScore xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <UsersInTopScore>
-    <NickOfUser>dsafda</NickOfUser>
+    <NickOfUser>Korosh</NickOfUser>
+    <Level>7</Level>
+    <Score>313</Score>
+    <Date>2020-05-09T00:00:00+03:00</Date>
+  </UsersInTopScore>
+  <UsersInTopScore>
+    <NickOfUser>вафвафві</NickOfUser>
     <Level>1</Level>
     <Score>6</Score>
     <Date>2020-05-07T00:00:00+03:00</Date>
   </UsersInTopScore>
   <UsersInTopScore>
-    <NickOfUser>вафвафві</NickOfUser>
+    <NickOfUser>dsafda</NickOfUser>
     <Level>1</Level>
     <Score>6</Score>
     <Date>2020-05-07T00:00:00+03:00</Date>
