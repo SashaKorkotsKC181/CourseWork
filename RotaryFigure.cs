@@ -83,7 +83,7 @@ namespace CourseWork
         }
         public override string ToString()
         {
-            return "\"R\" can make\nhorizontal\ncurrent figure";
+            return "\"R\" make\nhorizontal\ncurrent figure";
         }
     }
 }

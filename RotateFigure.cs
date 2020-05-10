@@ -50,7 +50,7 @@ namespace CourseWork
         }
         public override string ToString()
         {
-            return "\"E\" can rotate\ncurrent figure";
+            return "\"E\" rotate\ncurrent figure";
         }
     }
 }
