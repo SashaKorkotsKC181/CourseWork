@@ -21,7 +21,8 @@ namespace CourseWork
                 {rand.Next(1, 6), rand.Next(1, 6), rand.Next(1, 6)},
             };            
             leftUpPointOfMap = new Point(leftUpPointOfWorkspace_.X, leftUpPointOfWorkspace_.Y - 3 * side_);
-            side = side_;            
+            side = side_;
+            cobeColorsCurrentFigure = new Bitmap[] { Resource.BlueRotary, Resource.BlueRotary, Resource.GreenRotary, Resource.PinkRotary, Resource.PurpleRotary, Resource.RedRotary, Resource.YellowRotary };
         }
         public RotaryFigure(RotaryFigure that)
         {

@@ -121,14 +121,17 @@
   <data name="Blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="BlueRotary" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\BlueRotary.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="BlueRotate" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\BlueRotate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Exit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Exit.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Green" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GreenRotary" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\GreenRotary.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="GreenRotate" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\GreenRotate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -136,11 +139,17 @@
   <data name="Pink" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\pink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="PinkRotary" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\PinkRotary.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="PinkRotate" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\PinkRotate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Purple" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\purple.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PurpleRotary" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\PurpleRotary.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PurpleRotate" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\PurpleRotate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -148,26 +157,20 @@
   <data name="Red" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="RedRotary" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\RedRotary.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="RedRotate" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\RedRotate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Restart" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Restart.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Start" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Start.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Stop" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Stop.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="White" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="WhiteRotate" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\WhiteRotate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Yellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\yellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="YellowRotary" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\YellowRotary.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="YellowRotate" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\YellowRotate.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

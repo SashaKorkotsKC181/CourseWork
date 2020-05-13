@@ -73,6 +73,16 @@ namespace CourseWork {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BlueRotary {
+            get {
+                object obj = ResourceManager.GetObject("BlueRotary", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BlueRotate {
             get {
                 object obj = ResourceManager.GetObject("BlueRotate", resourceCulture);
@@ -83,9 +93,9 @@ namespace CourseWork {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Exit {
+        internal static System.Drawing.Bitmap Green {
             get {
-                object obj = ResourceManager.GetObject("Exit", resourceCulture);
+                object obj = ResourceManager.GetObject("Green", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +103,9 @@ namespace CourseWork {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Green {
+        internal static System.Drawing.Bitmap GreenRotary {
             get {
-                object obj = ResourceManager.GetObject("Green", resourceCulture);
+                object obj = ResourceManager.GetObject("GreenRotary", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,6 +133,16 @@ namespace CourseWork {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap PinkRotary {
+            get {
+                object obj = ResourceManager.GetObject("PinkRotary", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap PinkRotate {
             get {
                 object obj = ResourceManager.GetObject("PinkRotate", resourceCulture);
@@ -136,6 +156,16 @@ namespace CourseWork {
         internal static System.Drawing.Bitmap Purple {
             get {
                 object obj = ResourceManager.GetObject("Purple", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PurpleRotary {
+            get {
+                object obj = ResourceManager.GetObject("PurpleRotary", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -163,39 +193,19 @@ namespace CourseWork {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap RedRotary {
+            get {
+                object obj = ResourceManager.GetObject("RedRotary", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap RedRotate {
             get {
                 object obj = ResourceManager.GetObject("RedRotate", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Restart {
-            get {
-                object obj = ResourceManager.GetObject("Restart", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Start {
-            get {
-                object obj = ResourceManager.GetObject("Start", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Stop {
-            get {
-                object obj = ResourceManager.GetObject("Stop", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -213,9 +223,9 @@ namespace CourseWork {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap WhiteRotate {
+        internal static System.Drawing.Bitmap Yellow {
             get {
-                object obj = ResourceManager.GetObject("WhiteRotate", resourceCulture);
+                object obj = ResourceManager.GetObject("Yellow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -223,9 +233,9 @@ namespace CourseWork {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Yellow {
+        internal static System.Drawing.Bitmap YellowRotary {
             get {
-                object obj = ResourceManager.GetObject("Yellow", resourceCulture);
+                object obj = ResourceManager.GetObject("YellowRotary", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

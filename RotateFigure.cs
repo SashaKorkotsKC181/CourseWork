@@ -21,7 +21,8 @@ namespace CourseWork
                 {rand.Next(1, 6), rand.Next(1, 6), rand.Next(1, 6)},
             };            
             leftUpPointOfMap = new Point(leftUpPointOfWorkspace_.X, leftUpPointOfWorkspace_.Y - 3 * side_);
-            side = side_;            
+            side = side_;
+            cobeColorsCurrentFigure = new Bitmap[] {Resource.BlueRotate, Resource.BlueRotate, Resource.GreenRotate, Resource.PinkRotate, Resource.PurpleRotate, Resource.RedRotate, Resource.YellowRotate};
         }
         public RotateFigure(RotateFigure that)
         {

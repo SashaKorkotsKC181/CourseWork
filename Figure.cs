@@ -17,14 +17,18 @@ namespace CourseWork
         abstract public void Rotay(int[,] map_);
         abstract public void Rotate();
         protected Bitmap[] cobeColors = new Bitmap[] { Resource.Blue, Resource.Blue, Resource.Green, Resource.Pink, Resource.Purple, Resource.Red, Resource.Yellow };
-
+        protected Bitmap[] cobeColorsCurrentFigure;
         protected Point leftUpPointOfMap;
         protected int side;
         public void Draw(ref Graphics graf, int i, int j, int color_)
         {
             graf.DrawImage(cobeColors[color_], (leftUpPointOfMap.X + i * side), (leftUpPointOfMap.Y + j * side), side, side);
-        }       
-        public void HideDrawing(ref Graphics graf, int i , int j)
+        }
+        public void DrawCurrentFigure(ref Graphics graf, int i, int j, int color_)
+        {
+            graf.DrawImage(cobeColorsCurrentFigure[color_], (leftUpPointOfMap.X + i * side), (leftUpPointOfMap.Y + j * side), side, side);
+        }
+        public  void HideDrawing(ref Graphics graf, int i , int j)
         {
             graf.DrawImage(Resource.White, (leftUpPointOfMap.X + i * side), (leftUpPointOfMap.Y + j * side), side, side);
         }

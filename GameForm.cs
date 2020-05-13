@@ -33,7 +33,7 @@ namespace CourseWork
         bool moveLeft;
         bool moveRight;
         SortedSet<DeleteCode> destrou;
-        SortedSet<DeleteCode> find;
+        bool drawcurrent;
         int level;
         public GameForm(Difficulty diff)
         {            
@@ -60,25 +60,25 @@ namespace CourseWork
         }
 
         void timerForMoveLeftRight_Tick(object sender, EventArgs e)
-        {
+        {           
             if (moveLeft == true)
             {
                 CleanCurrentFigure();
                 currentFigure.MoveLeft(map);
-                DrawCurrentFigure();
+                DrawOnMapCurrentFigure();
             }
             if (moveRight == true)
             {
                 CleanCurrentFigure();
                 currentFigure.MoveRight(map);
-                DrawCurrentFigure();
+                DrawOnMapCurrentFigure();
             } 
 
         }
 
         void GameForm_KeyUp(object sender, KeyEventArgs e)
         {
-            if (moveDownTimer.Enabled && forDestrou == 0)
+            if (moveDownTimer.Enabled && forDestrou == 0 && !stop)
             {
                 switch (e.KeyCode)
                 {
@@ -93,31 +93,30 @@ namespace CourseWork
                     case Keys.Up:
                         CleanCurrentFigure();
                         currentFigure.Scroll();
-                        DrawCurrentFigure();
+                        DrawOnMapCurrentFigure();
                         break;
                     case Keys.R:
                         CleanCurrentFigure();
                         currentFigure.Rotay(map);
-                        DrawCurrentFigure();
+                        DrawOnMapCurrentFigure();
                         break;
                     case Keys.E:
                         CleanCurrentFigure();
                         currentFigure.Rotate();
-                        DrawCurrentFigure();
-                        break;
-                    case Keys.T:                        
-                        Pause();
+                        DrawOnMapCurrentFigure();
                         break;
                 }
             }
             if (e.KeyCode == Keys.Down)
                 moveDownTimer.Interval = speed;
+            if (e.KeyCode == Keys.T)
+                Pause();
 
         }
 
         void GameForm_KeyDown(object sender, KeyEventArgs e)
         {
-            if (moveDownTimer.Enabled && forDestrou == 0)
+            if (moveDownTimer.Enabled && forDestrou == 0 && !stop)
             {
                 switch (e.KeyCode)
                 {
@@ -129,7 +128,7 @@ namespace CourseWork
                         {
                             CleanCurrentFigure();
                             currentFigure.MoveLeft(map);
-                            DrawCurrentFigure();
+                            DrawOnMapCurrentFigure();
                         }   
                         moveLeft = true;
                         break;
@@ -138,7 +137,7 @@ namespace CourseWork
                         {
                             CleanCurrentFigure();
                             currentFigure.MoveRight(map);
-                            DrawCurrentFigure();
+                            DrawOnMapCurrentFigure();
                         }
                         moveRight = true;
                         break;
@@ -194,6 +193,8 @@ namespace CourseWork
         {
             DrawGrid(e.Graphics);
             DrawCobes(e.Graphics);
+            if (drawcurrent)
+                DrawCurrentFigure(e.Graphics);
             CleanDestrou(e.Graphics);                
         }
 
@@ -213,12 +214,14 @@ namespace CourseWork
                 }
                 if (currentFigure.CheckMoveDown(map))
                 {
+                    drawcurrent = true;
                     CleanCurrentFigure();
                     currentFigure.MoveDown();
-                    DrawCurrentFigure();
+                    DrawOnMapCurrentFigure();
                 }
                 else
                 {
+                    drawcurrent = false;
                     MoveCobes();
                     FindEqualCobesInCorrentFigure();
                     score += destrou.Count();
@@ -243,8 +246,8 @@ namespace CourseWork
                 moveDownTimer.Interval = speed;                
                 
             }
-            if (!stop && !gameOver)
-            {
+            //if (!stop && !gameOver)
+            //{
                 if (forDestrou == 3)
                 {
                     moveDownTimer.Enabled = false;
@@ -256,7 +259,7 @@ namespace CourseWork
                     moveDownTimer.Enabled = true;
                     timerForDestrou.Enabled = false;
                 }
-            }
+            //}
             if (gameOver)
             {
                 gameoverLabel.Visible = true;
@@ -281,6 +284,7 @@ namespace CourseWork
             if (stop)
             {
                 pauseToolStripMenuItem.Text = "Start";
+
             }
             else
             {
@@ -309,7 +313,7 @@ namespace CourseWork
                 for (int j = 0; j < nextFigure.GetMatrix.GetLength(1); j++)
                 {
                     //map[numberOfCobsDownSide + i, currentFigure.GetY + j] = currentFigure.GetMatrix[i, j];
-                    currentFigure.Draw(ref graf, numberOfCobsDownSide + i + 1, j + 4, nextFigure.GetMatrix[i, j]);
+                    nextFigure.DrawCurrentFigure(ref graf, numberOfCobsDownSide + i + 1, j + 4, nextFigure.GetMatrix[i, j]);
                 }
             }
 
@@ -334,13 +338,26 @@ namespace CourseWork
             return Math.Min(x,y);            
         }
 
-        private void DrawCurrentFigure()
+        private void DrawOnMapCurrentFigure()
         {
             for (int i = 0; i < currentFigure.GetMatrix.GetLength(0); i++)
             {
                 for (int j = 0; j < currentFigure.GetMatrix.GetLength(1); j++)
                 {
                     map[currentFigure.GetX + i, currentFigure.GetY + j] = currentFigure.GetMatrix[i, j];
+                }
+
+            }
+        }
+
+        private void DrawCurrentFigure(Graphics graf)
+        {
+            for (int i = 0; i < currentFigure.GetMatrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < currentFigure.GetMatrix.GetLength(1); j++)
+                {
+                    if (currentFigure.GetY + j > 2)
+                        currentFigure.DrawCurrentFigure(ref graf, currentFigure.GetX + i, currentFigure.GetY + j, map[currentFigure.GetX + i, currentFigure.GetY + j]);
                 }
 
             }

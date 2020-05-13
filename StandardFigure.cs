@@ -22,7 +22,7 @@ namespace CourseWork
             };
             leftUpPointOfMap = new Point(leftUpPointOfWorkspace_.X, leftUpPointOfWorkspace_.Y - 3 * side_);
             side = side_;
-            
+            cobeColorsCurrentFigure = new Bitmap[] { Resource.Blue, Resource.Blue, Resource.Green, Resource.Pink, Resource.Purple, Resource.Red, Resource.Yellow };
         }
 
 
